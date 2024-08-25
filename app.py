@@ -7,8 +7,8 @@ from spark_jira_tools import Jira
 app = Flask(__name__)
 CORS(app)  # Permitir solicitudes CORS
 
-@app.route('/validate', methods=['POST'])
-def validate():
+@app.route('/run_check_hut', methods=['POST'])
+def run_check_hut():
     username = request.json.get("username")
     token = request.json.get("token")
     hut = request.json.get("hut")
@@ -29,9 +29,9 @@ def validate():
     issues = response.get("issues")
 
     if issues:
-        return jsonify({f"La HUT {hut} existe."})
+        return jsonify({"message": f"La HUT {hut} existe."})
     else:
-        return jsonify({f"La HUT {hut} no existe."})
+        return jsonify({"message": f"La HUT {hut} no existe."})
 
 if __name__ == '__main__':
     app.run(debug=True)
