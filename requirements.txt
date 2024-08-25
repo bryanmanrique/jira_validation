@@ -1,0 +1,6 @@
+Flask
+setuptools==58.2.0
+wheel==0.40.0
+spark-jira-tools==0.4.4
+gunicorn
+flask-cors
