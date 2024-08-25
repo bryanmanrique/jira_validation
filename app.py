@@ -29,9 +29,9 @@ def run_check_hut():
     issues = response.get("issues")
 
     if issues:
-        return jsonify({"message": f"La HUT {hut} existe."})
+        return Response(f"La HUT {hut} existe.", mimetype='text/plain')
     else:
-        return jsonify({"message": f"La HUT {hut} no existe."})
+        return Response(f"La HUT {hut} no existe.", mimetype='text/plain')
 
 if __name__ == '__main__':
     app.run(debug=True)
